@@ -1,0 +1,31 @@
+{
+  "name": "tuneuptechnology",
+  "version": "1.0.0",
+  "description": "The Node client library for the Tuneup Technology App.",
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "dependencies": {
+    "got": "^11.5.1"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ncr4/tuneuptechnology-node.git"
+  },
+  "keywords": [
+    "tuneup",
+    "technology",
+    "node",
+    "client",
+    "library"
+  ],
+  "author": "NCR4",
+  "license": "MIT"
+}
