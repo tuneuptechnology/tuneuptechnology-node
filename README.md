@@ -3,7 +3,7 @@
 The Node client library for the Tuneup Technology App.
 
 [![Build Status](https://travis-ci.com/ncr4/tuneuptechnology-node.svg?branch=master)](https://travis-ci.com/ncr4/tuneuptechnology-node)
-[![NPM](https://img.shields.io/npm/v/tuneuptechnology-node)](https://github.com/ncr4/tuneuptechnology-node)
+[![NPM](https://img.shields.io/npm/v/tuneuptechnology)](https://github.com/ncr4/tuneuptechnology-node)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 This library allows you to interact with the customers, tickets, inventory, and locations objects without needing to do the hard work of binding your calls and data to endpoints. Simply call an action such as `Customer.create` and pass some data and let the library do the rest.
