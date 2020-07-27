@@ -1,6 +1,6 @@
 {
   "name": "tuneuptechnology",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The Node client library for the Tuneup Technology App.",
   "main": "index.js",
   "directories": {
