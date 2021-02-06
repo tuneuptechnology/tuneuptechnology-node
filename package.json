@@ -1,6 +1,6 @@
 {
   "name": "tuneuptechnology",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The Node client library for the Tuneup Technology App.",
   "main": "index.js",
   "directories": {
@@ -17,7 +17,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ncr4/tuneuptechnology-node.git"
+    "url": "git+https://github.com/tuneuptechnology/tuneuptechnology-node.git"
   },
   "keywords": [
     "tuneup",
@@ -26,6 +26,6 @@
     "client",
     "library"
   ],
-  "author": "NCR4",
+  "author": "Tuneup Technology",
   "license": "MIT"
 }
