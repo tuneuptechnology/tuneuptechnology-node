@@ -1,5 +1,10 @@
 # CHANGELOG
 
+## v1.2.0 (2021-02-20)
+
+* Adds a timeout to requests
+* Renames `response` to `make_http_request`
+
 ## v1.1.0 (2021-02-04)
 
 * Added user-agent to requests (closes #2)
