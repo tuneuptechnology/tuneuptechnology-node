@@ -1,22 +1,33 @@
 const got = require('got')
+const Customers = require('./Customers')
 
 module.exports = class Client {
-    static base_url() {
-        return 'https://app.tuneuptechnology.com/api/'
-    }
-    static version() {
-        return '1.2.0'
+    constructor(email, apiKey, baseUrl = 'https://app.tuneuptechnology.com/api', timeout = 10000) {
+        this.email = email
+        this.apiKey = apiKey
+        this.baseUrl = baseUrl
+        this.timeout = timeout
+        this.version = '2.0.0'
+        this.customers = new Customers(baseUrl, this.makeHttpRequest.bind(this))
+
+        if (!email || !apiKey) {
+            throw new Error('email and apiKey are required to create a client.')
+        }
     }
 
-    static async make_http_request(data, endpoint) {
-        const request = await got.post(endpoint, {
+    async makeHttpRequest(method, endpoint, data = null) {
+        const request = await got(endpoint, {
+            method,
             headers: {
-                'user-agent': `TuneupTechnologyApp/NodeClient/${Client.version()}`
+                'Accept': 'application/json',
+                'User-Agent': `TuneupTechnologyApp/NodeClient/${this.version}`,
+                'Email': this.email,
+                'Api-Key': this.apiKey
             },
             json: data,
             responseType: 'json',
-            timeout: 10000
+            timeout: this.timeout
         }).catch(console.log);
-        return request.body
+        return JSON.stringify(request.body, null, 4)
     }
 }

@@ -38,12 +38,22 @@ Other examples can be found in the `/examples` directory. Alter according to you
 ## Usage
 
 ```bash
-API_EMAIL=email@example.com API_KEY=123... node create-customer.js
+API_EMAIL=email@example.com API_KEY=123... node createCustomer.js
 ```
 
 ## Documentation
 
 Up-to-date API documentation can be [found here](https://app.tuneuptechnology.com/docs/api).
+
+## Development
+
+```bash
+# Lint project
+npm run lint
+
+# Run tests
+npm run test
+```
 
 ## Releasing
 

@@ -1,4 +1,5 @@
-module.exports.Customer = require('./tuneuptechnology/customer')
+module.exports.Client = require('./tuneuptechnology/client')
+module.exports.Customers = require('./tuneuptechnology/customers')
 module.exports.Inventory = require('./tuneuptechnology/inventory')
-module.exports.Location = require('./tuneuptechnology/location')
-module.exports.Ticket = require('./tuneuptechnology/ticket')
+module.exports.Locations = require('./tuneuptechnology/locations')
+module.exports.Tickets = require('./tuneuptechnology/tickets')
