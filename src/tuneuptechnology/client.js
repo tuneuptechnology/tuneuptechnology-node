@@ -1,8 +1,8 @@
 const got = require('got')
-const Customers = require('./Customers')
-const Inventory = require('./Inventory')
-const Locations = require('./Locations')
-const Tickets = require('./Tickets')
+const Customers = require('./customers')
+const Inventory = require('./inventory')
+const Locations = require('./locations')
+const Tickets = require('./tickets')
 
 module.exports = class Client {
     constructor(email, apiKey, baseUrl = 'https://app.tuneuptechnology.com/api', timeout = 10000) {

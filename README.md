@@ -56,7 +56,7 @@ npm run lint
 # Run tests
 npm run test
 
-# Run coverage (TODO: Does not currently report coverage properly, most likely due to Polly.js)
+# Run coverage
 npm run coverage
 ```
 
