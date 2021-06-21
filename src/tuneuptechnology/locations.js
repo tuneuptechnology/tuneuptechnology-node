@@ -1,31 +1,36 @@
 module.exports = class Location {
-    create(data) {
-        const endpoint = this.baseUrl() + '/locations'
-        const response = this.makeHttpRequest('post', endpoint, data)
+    constructor(baseUrl, makeHttpRequest) {
+        this.baseUrl = baseUrl
+        this.makeHttpRequest = makeHttpRequest
+    }
+
+    async create(data) {
+        const endpoint = this.baseUrl + '/locations'
+        const response = await this.makeHttpRequest('post', endpoint, data)
         return response
     }
 
-    all() {
-        const endpoint = this.baseUrl() + '/locations'
-        const response = this.makeHttpRequest('get', endpoint)
+    async all() {
+        const endpoint = this.baseUrl + '/locations'
+        const response = await this.makeHttpRequest('get', endpoint)
         return response
     }
 
-    retrieve(id) {
-        const endpoint = this.baseUrl() + `/locations/${id}`
-        const response = this.makeHttpRequest('get', endpoint)
+    async retrieve(id) {
+        const endpoint = this.baseUrl + `/locations/${id}`
+        const response = await this.makeHttpRequest('get', endpoint)
         return response
     }
 
-    update(id, data) {
-        const endpoint = this.baseUrl() + `/locations/${id}`
-        const response = this.makeHttpRequest('patch', endpoint, data)
+    async update(id, data) {
+        const endpoint = this.baseUrl + `/locations/${id}`
+        const response = await this.makeHttpRequest('patch', endpoint, data)
         return response
     }
 
-    delete(id) {
-        const endpoint = this.baseUrl() + `/locations/${id}`
-        const response = this.makeHttpRequest('delete', endpoint)
+    async delete(id) {
+        const endpoint = this.baseUrl + `/locations/${id}`
+        const response = await this.makeHttpRequest('delete', endpoint)
         return response
     }
 }

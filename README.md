@@ -3,6 +3,8 @@
 The Node client library for the Tuneup Technology App.
 
 [![Build Status](https://github.com/tuneuptechnology/tuneuptechnology-node/workflows/build/badge.svg)](https://github.com/tuneuptechnology/tuneuptechnology-node/actions)
+[![Coverage Status](https://coveralls.io/repos/github/tuneuptechnology/tuneuptechnology-node/badge.svg?branch=main)](https://coveralls.io/github/tuneuptechnology/tuneuptechnology-node?branch=main)
+[![NPM](https://img.shields.io/npm/v/tuneuptechnology)](https://www.npmjs.com/package/tuneuptechnology)
 [![Licence](https://img.shields.io/github/license/tuneuptechnology/tuneuptechnology-node)](https://opensource.org/licenses/mit-license.php)
 
 This library allows you to interact with the customers, tickets, inventory, and locations objects without needing to do the hard work of binding your calls and data to endpoints. Simply call an action such as `Customer.create` and pass some data and let the library do the rest.
@@ -18,9 +20,9 @@ npm install tuneuptechnology
 ```javascript
 const tuneuptechnology = require('tuneuptechnology')
 
+const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY)
+
 const data = {
-    auth: process.env.API_EMAIL,
-    api_key: process.env.API_KEY,
     firstname: 'Jake',
     lastname: 'Peralta',
     email: 'jake@example.com',
@@ -30,7 +32,7 @@ const data = {
     location_id: 1
 }
 
-tuneuptechnology.Customer.create(data).then(console.log).catch(console.log)
+client.customers.create(data).then(console.log).catch(console.log)
 ```
 
 Other examples can be found in the `/examples` directory. Alter according to your needs.
@@ -53,6 +55,9 @@ npm run lint
 
 # Run tests
 npm run test
+
+# Run coverage (TODO: Does not currently report coverage properly, most likely due to Polly.js)
+npm run coverage
 ```
 
 ## Releasing

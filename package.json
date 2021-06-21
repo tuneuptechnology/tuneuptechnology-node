@@ -13,11 +13,19 @@
     "got": "^11.5.1"
   },
   "devDependencies": {
-    "eslint": "^6.8.0"
+    "@pollyjs/adapter-node-http": "^5.1.1",
+    "@pollyjs/core": "^5.1.1",
+    "@pollyjs/persister-fs": "^5.1.1",
+    "chai": "^4.2.0",
+    "coveralls": "^3.1.0",
+    "eslint": "^6.8.0",
+    "mocha": "^8.1.1",
+    "nyc": "^15.1.0"
   },
   "scripts": {
     "lint": "npx eslint --ignore-pattern 'node_modules' --ignore-pattern 'coverage' .",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "_mocha",
+    "coverage": "nyc --reporter=lcov --reporter=text npm run test"
   },
   "repository": {
     "type": "git",

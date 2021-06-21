@@ -1,31 +1,36 @@
 module.exports = class Inventory {
-    create(data) {
-        const endpoint = this.baseUrl() + '/inventory'
-        const response = this.makeHttpRequest('post', endpoint, data)
+    constructor(baseUrl, makeHttpRequest) {
+        this.baseUrl = baseUrl
+        this.makeHttpRequest = makeHttpRequest
+    }
+
+    async create(data) {
+        const endpoint = this.baseUrl + '/inventory'
+        const response = await this.makeHttpRequest('post', endpoint, data)
         return response
     }
 
-    all() {
-        const endpoint = this.baseUrl() + '/inventory'
-        const response = this.makeHttpRequest('get', endpoint)
+    async all() {
+        const endpoint = this.baseUrl + '/inventory'
+        const response = await this.makeHttpRequest('get', endpoint)
         return response
     }
 
-    retrieve(id) {
-        const endpoint = this.baseUrl() + `/inventory/${id}`
-        const response = this.makeHttpRequest('get', endpoint)
+    async retrieve(id) {
+        const endpoint = this.baseUrl + `/inventory/${id}`
+        const response = await this.makeHttpRequest('get', endpoint)
         return response
     }
 
-    update(id, data) {
-        const endpoint = this.baseUrl() + `/inventory/${id}`
-        const response = this.makeHttpRequest('patch', endpoint, data)
+    async update(id, data) {
+        const endpoint = this.baseUrl + `/inventory/${id}`
+        const response = await this.makeHttpRequest('patch', endpoint, data)
         return response
     }
 
-    delete(id) {
-        const endpoint = this.baseUrl() + `/inventory/${id}`
-        const response = this.makeHttpRequest('delete', endpoint)
+    async delete(id) {
+        const endpoint = this.baseUrl + `/inventory/${id}`
+        const response = await this.makeHttpRequest('delete', endpoint)
         return response
     }
 }
