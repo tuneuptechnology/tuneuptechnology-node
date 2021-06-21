@@ -20,7 +20,7 @@ npm install tuneuptechnology
 ```javascript
 const tuneuptechnology = require('tuneuptechnology')
 
-const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY)
+const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY)
 
 const data = {
     firstname: 'Jake',

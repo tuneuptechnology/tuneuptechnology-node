@@ -1,6 +1,6 @@
 const tuneuptechnology = require('tuneuptechnology')
 
-const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY)
+const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY)
 
 const data = {
     firstname: 'Jake',
@@ -12,4 +12,4 @@ const data = {
     location_id: 1
 }
 
-client.Customers.update(23, data).then(console.log).catch(console.log)
+client.customers.update(23, data).then(console.log).catch(console.log)

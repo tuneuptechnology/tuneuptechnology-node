@@ -3,10 +3,10 @@
 ## v2.0.0 (2021-06-21)
 
 * Updates entire library to be compliant with the new `v2` API (endpoints, HTTP methods, etc)
-* Build requests via a `Client` now providing your email and api_key
+* Build requests via a `client` now providing your email and api_key
 * Added optional `baseUrl` and `timeout` options to client
 * Module names are now plural
-* The Client now checks if an email and api_key is provided and raises an error if not
+* The client now checks if an email and api_key is provided and raises an error if not
 * Require Node >= 12
 * Added unit tests (closes #1)
 

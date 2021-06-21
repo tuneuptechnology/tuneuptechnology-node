@@ -10,7 +10,7 @@ describe('Locations', function () {
         const { server } = this.polly
         setupPolly.stripCreds(server)
 
-        const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
+        const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
 
         const data = {
             name: 'Location Name',
@@ -29,7 +29,7 @@ describe('Locations', function () {
         const { server } = this.polly
         setupPolly.stripCreds(server)
 
-        const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
+        const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
 
         const response = await client.locations.retrieve(1)
 
@@ -40,7 +40,7 @@ describe('Locations', function () {
         const { server } = this.polly
         setupPolly.stripCreds(server)
 
-        const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
+        const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
 
         const response = await client.locations.all()
 
@@ -51,7 +51,7 @@ describe('Locations', function () {
         const { server } = this.polly
         setupPolly.stripCreds(server)
 
-        const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
+        const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
 
         const data = {
             name: 'Location Name',
@@ -70,7 +70,7 @@ describe('Locations', function () {
         const { server } = this.polly
         setupPolly.stripCreds(server)
 
-        const client = new tuneuptechnology.Client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
+        const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY, 'http://tuneapp.localhost/api')
 
         const response = await client.locations.delete(1)
 

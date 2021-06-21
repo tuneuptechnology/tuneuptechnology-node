@@ -31,7 +31,7 @@ jobs:
       - name: Install dependencies
         run: npm install
       - name: Run tests
-        run: npm run coverage
+        run: API_EMAIL=mock_email@example.com API_KEY=123 npm run coverage
       - name: Coveralls
         if: github.ref == 'refs/heads/main'
         uses: coverallsapp/github-action@master
