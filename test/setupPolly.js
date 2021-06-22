@@ -17,7 +17,10 @@ function startPolly() {
             },
         },
         recordIfMissing: true,
-        recordFailedRequests: true,
+        matchRequestsBy: {
+            headers: false,
+            url: false,
+        }
     })
 }
 
