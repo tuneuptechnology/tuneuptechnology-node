@@ -1,9 +1,19 @@
 # CHANGELOG
 
+## v2.0.0 (2021-06-21)
+
+* Updates entire library to be compliant with the new `v2` API (endpoints, HTTP methods, etc)
+* Build requests via a `client` now providing your email and api_key
+* Added optional `baseUrl` and `timeout` options to client
+* Module names are now plural
+* The client now checks if an email and api_key is provided and raises an error if not
+* Require Node >= 12
+* Added unit tests (closes #1)
+
 ## v1.2.0 (2021-02-20)
 
 * Adds a timeout to requests
-* Renames `response` to `make_http_request`
+* Renames `response` to `makeHttpRequest`
 
 ## v1.1.0 (2021-02-04)
 

@@ -16,3 +16,24 @@ jobs:
         run: npm install
       - name: Run Eslint
         run: npx eslint --ignore-pattern 'node_modules' --ignore-pattern 'coverage' .
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        nodeversion: ["12", "14", "16"]
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v2
+      - name: Setup Node
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.nodeversion }}
+      - name: Install dependencies
+        run: npm install
+      - name: Run tests
+        run: API_EMAIL=mock_email@example.com API_KEY=123 npm run coverage
+      - name: Coveralls
+        if: github.ref == 'refs/heads/main'
+        uses: coverallsapp/github-action@master
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}

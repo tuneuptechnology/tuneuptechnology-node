@@ -1,22 +1,64 @@
 const got = require('got')
+const Customers = require('./customers')
+const Inventory = require('./inventory')
+const Locations = require('./locations')
+const Tickets = require('./tickets')
 
 module.exports = class Client {
-    static base_url() {
-        return 'https://app.tuneuptechnology.com/api/'
-    }
-    static version() {
-        return '1.2.0'
+    constructor(email, apiKey, baseUrl = 'https://app.tuneuptechnology.com/api', timeout = 10000) {
+        this.email = email
+        this.apiKey = apiKey
+        this.baseUrl = baseUrl
+        this.timeout = timeout
+        this.version = '2.0.0'
+        this.customers = new Customers(baseUrl, this.makeHttpRequest.bind(this))
+        this.inventory = new Inventory(baseUrl, this.makeHttpRequest.bind(this))
+        this.locations = new Locations(baseUrl, this.makeHttpRequest.bind(this))
+        this.tickets = new Tickets(baseUrl, this.makeHttpRequest.bind(this))
+
+        if (!email || !apiKey) {
+            throw new Error('email and apiKey are required to create a client.')
+        }
     }
 
-    static async make_http_request(data, endpoint) {
-        const request = await got.post(endpoint, {
-            headers: {
-                'user-agent': `TuneupTechnologyApp/NodeClient/${Client.version()}`
-            },
-            json: data,
-            responseType: 'json',
-            timeout: 10000
-        }).catch(console.log);
-        return request.body
+    async makeHttpRequest(method, endpoint, data = null) {
+        // If post or patch, include a json body
+        if (['post', 'patch'].includes(method)) {
+            try {
+                const response = await got(endpoint, {
+                    method,
+                    headers: {
+                        'Accept': 'application/json',
+                        'User-Agent': `TuneupTechnologyApp/NodeClient/${this.version}`,
+                        'Email': this.email,
+                        'Api-Key': this.apiKey
+                    },
+                    json: data,
+                    responseType: 'json',
+                    timeout: this.timeout
+                })
+                return response.body
+            } catch (error) {
+                return error.response.body
+            }
+        } else {
+            // if get or delete, don't include a json body
+            try {
+                const response = await got(endpoint, {
+                    method,
+                    headers: {
+                        'Accept': 'application/json',
+                        'User-Agent': `TuneupTechnologyApp/NodeClient/${this.version}`,
+                        'Email': this.email,
+                        'Api-Key': this.apiKey
+                    },
+                    responseType: 'json',
+                    timeout: this.timeout
+                })
+                return response.body
+            } catch (error) {
+                return error.response.body
+            }
+        }
     }
 }
