@@ -25,10 +25,8 @@ function startPolly () {
 }
 
 function stripCreds (server) {
-  server.any().on('beforePersist', (req, recording) => {
-    // TODO: is there a way we can combine these two lines?
-    recording.request.headers = recording.request.headers.filter(({ name }) => name !== 'email')
-    recording.request.headers = recording.request.headers.filter(({ name }) => name !== 'api-key')
+  server.any().on('beforePersist', (_, recording) => {
+    recording.request.headers = recording.request.headers.filter(({ name }) => name !== 'email').filter(({ name }) => name !== 'api-key')
   })
 }
 
