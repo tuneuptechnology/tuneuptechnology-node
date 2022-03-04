@@ -1,1 +1,1 @@
-module.exports = require('./src/tuneuptechnology.js')
+module.exports = require('./src/tuneuptechnology.js');

@@ -1,6 +1,6 @@
-const tuneuptechnology = require('../src/tuneuptechnology')
+const tuneuptechnology = require('../src/tuneuptechnology');
 
-const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY)
+const client = new tuneuptechnology.client(process.env.API_EMAIL, process.env.API_KEY);
 
 const data = {
   firstname: 'Jake',
@@ -9,7 +9,7 @@ const data = {
   phone: '8015551234',
   user_id: 1,
   notes: 'Believes he is a good detective.',
-  location_id: 1
-}
+  location_id: 1,
+};
 
-client.customers.create(data).then(console.log).catch(console.log)
+client.customers.create(data).then(console.log).catch(console.log);
